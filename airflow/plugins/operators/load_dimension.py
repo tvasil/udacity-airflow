@@ -34,7 +34,7 @@ class LoadDimensionOperator(BaseOperator):
 
         self.log.info(f"Loading data into dim table {self.table}")
 
-        formatted_sql = LoadFactOperator.sql.format(
+        formatted_sql = self.sql.format(
             self.table,
             self.sql_template
         )
