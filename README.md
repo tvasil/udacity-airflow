@@ -1,5 +1,5 @@
 # ELT using Airflow
-This project is related to the [Udacity Data Engineer Nanodegree](https://www.udacity.com/course/data-engineer-nanodegree--nd027) program, submitted in October 2020. The goal of the project is to build an ELT (Extract, Load, Transform) process using S3 and Redshift, orchestated by an Airflow DAG.
+This project is related to the [Udacity Data Engineer Nanodegree](https://www.udacity.com/course/data-engineer-nanodegree--nd027) program, submitted in October 2020. The goal of the project is to build an ELT (Extract, Load, Transform) process using S3 and Redshift, scheduled and ran by an Airflow DAG.
 
 ## Motivation
 The ELT process follows a ficticious company called Sparkify (hence the name of the DAG), which wants to create a relational database in Redshift based on a database of songs it holds in `json` format (the [Million Song Dataset](https://labrosa.ee.columbia.edu/millionsong/)), and combine it with logs of user activity data (i.e. users listening to specific songs). Ultimately, we want to build a star-schema database, which contains the following tables:
