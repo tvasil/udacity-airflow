@@ -13,16 +13,17 @@ class LoadDimensionOperator(BaseOperator):
     @apply_defaults
     def __init__(self,
                  redshift_conn_id="",
-                 destination_table="",
+                 table="",
                  sql_template="",
                  truncate=False,
                  *args, **kwargs):
 
         super(LoadDimensionOperator, self).__init__(*args, **kwargs)
-        self.destination_table = destination_table
+        self.table = table
         self.redshift_conn_id = redshift_conn_id
         self.truncate = truncate,
         self.sql_template = sql_template
+
 
     def execute(self, context):
         redshift = PostgresHook(postgres_conn_id=self.redshift_conn_id)

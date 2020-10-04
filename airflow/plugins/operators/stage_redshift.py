@@ -1,10 +1,11 @@
+from airflow.contrib.hooks.aws_hook import AwsHook
 from airflow.hooks.postgres_hook import PostgresHook
 from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
 
 class StageToRedshiftOperator(BaseOperator):
     ui_color = '#358140'
-    template_fields = ("s3_key")
+    template_fields = ("s3_key",)
     sql = """
         COPY {}
         FROM '{}'
@@ -44,7 +45,7 @@ class StageToRedshiftOperator(BaseOperator):
         rendered_key = self.s3_key.format(**context)
         s3_path = f"s3://{self.s3_bucket}/{rendered_key}"
 
-        formatted_sql = S3ToRedshiftOperator.sql.format(
+        formatted_sql = self.sql.format(
             self.table,
             s3_path,
             credentials.access_key,
