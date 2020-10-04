@@ -1,8 +1,8 @@
-# ETL using Airflow
-This project is related to the [Udacity Data Engineer Nanodegree](https://www.udacity.com/course/data-engineer-nanodegree--nd027) program, submitted in October 2020. The goal of the project is to build an ELT process using S3 and Redshift, orchestated by an Airflow DAG.
+# ELT using Airflow
+This project is related to the [Udacity Data Engineer Nanodegree](https://www.udacity.com/course/data-engineer-nanodegree--nd027) program, submitted in October 2020. The goal of the project is to build an ELT (Extract, Load, Transform) process using S3 and Redshift, orchestated by an Airflow DAG.
 
 ## Motivation
-The ETL process follows a ficticious company called Sparkify (hence the name of the DAG), which wants to create a relational database in Redshift based on a database of songs it holds in `json` format (the [Million Song Dataset](https://labrosa.ee.columbia.edu/millionsong/)), and combine it with logs of user activity data (i.e. users listening to specific songs). Ultimately, we want to build a star-schema database, which contains the following tables:
+The ELT process follows a ficticious company called Sparkify (hence the name of the DAG), which wants to create a relational database in Redshift based on a database of songs it holds in `json` format (the [Million Song Dataset](https://labrosa.ee.columbia.edu/millionsong/)), and combine it with logs of user activity data (i.e. users listening to specific songs). Ultimately, we want to build a star-schema database, which contains the following tables:
 
 FACT: songplays
 DIM: artists
@@ -11,7 +11,7 @@ DIM: artists
      users
 
 In this project, we are using specifically Airflow to schedule the execution of this ETL pipeline, broken down into specific `tasks` in an Airflow DAG. This provides the following advantages over simply running a Python script at a specified interval:
-1. Increased visibility into each step of the ETL process through Airflow UI
+1. Increased visibility into each step of the ELT process through Airflow UI
 2. Speed up of processes via parallelization
 3. Fault tolerance for specific tasks failing -- they can rerun, without affecting the whole pipeline
 4. Increased accountability to stakeholders via clearly defined steps, definitions, schedules and SLAs
