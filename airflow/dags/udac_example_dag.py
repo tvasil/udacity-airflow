@@ -100,6 +100,8 @@ run_quality_checks = DataQualityOperator(
     dag=dag,
     redshift_conn_id="redshift",
     provide_context=True,
+    qry_template="SELECT COUNT(*) FROM {}",
+    threshold=1,
     params={
         'tables': ['artists', 'songplays', 'songs', 'users']
     }
